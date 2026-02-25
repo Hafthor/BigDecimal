@@ -91,17 +91,17 @@ public readonly struct BigDecimal { // : IComparable<BigDecimal>, IEquatable<Big
     }
 
     private static (BigInteger value, int exponent) _Parse(string value) {
-        // Handle special values (case-insensitive)
-        if (value.Equals("nan", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("+nan", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, NaNExponent);
-        if (value.Equals("-nan", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("snan", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, SignalingNaNExponent);
-        if (value.Equals("inf", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("+inf", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("infinity", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("+infinity", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, PosInfExponent);
-        if (value.Equals("-inf", StringComparison.OrdinalIgnoreCase) ||
-            value.Equals("-infinity", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, NegInfExponent);
+        // // Handle special values (case-insensitive)
+        // if (value.Equals("nan", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("+nan", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, NaNExponent);
+        // if (value.Equals("-nan", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("snan", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, SignalingNaNExponent);
+        // if (value.Equals("inf", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("+inf", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("infinity", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("+infinity", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, PosInfExponent);
+        // if (value.Equals("-inf", StringComparison.OrdinalIgnoreCase) ||
+        //     value.Equals("-infinity", StringComparison.OrdinalIgnoreCase)) return (BigInteger.Zero, NegInfExponent);
 
         ReadOnlySpan<char> valueSpan = value.AsSpan();
         int exp = 0;
